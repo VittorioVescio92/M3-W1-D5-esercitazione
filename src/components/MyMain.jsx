@@ -13,6 +13,24 @@ class MyMain extends Component {
 
   async componentDidMount() {
     try {
+      const response = await fetch("http://www.omdbapi.com/?apikey=4d29747d&s=Star wars");
+      const data = await response.json();
+      const movies = data.Search.filter(movie => movie.Type === "movie");
+      this.setState({ StarWars: movies });
+    } catch (error) {
+      console.error(error);
+    }
+
+    try {
+      const response = await fetch("http://www.omdbapi.com/?apikey=4d29747d&s=Harry Potter");
+      const data = await response.json();
+      const movies = data.Search.filter(movie => movie.Type === "movie");
+      this.setState({ HarryPotter: movies });
+    } catch (error) {
+      console.error(error);
+    }
+
+    try {
       const response = await fetch("http://www.omdbapi.com/?apikey=4d29747d&s=The lord of the rings");
       const data = await response.json();
       const movies = data.Search.filter(movie => movie.Type === "movie");
@@ -26,13 +44,13 @@ class MyMain extends Component {
     return (
       <>
         <Container className="container-fluid justify-content-center px-1">
-          <TheLordOfTheRingsContainer movies={this.state.TheLordOfTheRings} />
-        </Container>
-        <Container className="container-fluid justify-content-center px-1">
           <StarWarsContainer movies={this.state.StarWars} />
         </Container>
         <Container className="container-fluid justify-content-center px-1">
           <HarryPotterContainer movies={this.state.HarryPotter} />
+        </Container>
+        <Container className="container-fluid justify-content-center px-1">
+          <TheLordOfTheRingsContainer movies={this.state.TheLordOfTheRings} />
         </Container>
       </>
     );
