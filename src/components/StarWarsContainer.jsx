@@ -1,12 +1,12 @@
 import { Component } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 
 class StarWarsContainer extends Component {
   render() {
     const { movies } = this.props;
 
     return (
-      <Container fluid className="px-0">
+      <>
         <div>
           <h3 className="text-light">Star Wars</h3>
         </div>
@@ -20,7 +20,7 @@ class StarWarsContainer extends Component {
               </Col>
             ))}
         </Row>
-      </Container>
+      </>
     );
   }
 }

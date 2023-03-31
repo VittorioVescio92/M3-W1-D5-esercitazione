@@ -60,12 +60,8 @@ class MyMain extends Component {
         <Container className="container-fluid justify-content-center px-1">
           <StarWarsContainer movies={this.state.StarWars} />
           {this.state.StarWarsError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
-        </Container>
-        <Container className="container-fluid justify-content-center px-1">
           <HarryPotterContainer movies={this.state.HarryPotter} />
           {this.state.HarryPotterError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
-        </Container>
-        <Container className="container-fluid justify-content-center px-1">
           <TheLordOfTheRingsContainer movies={this.state.TheLordOfTheRings} />
           {this.state.TheLordOfTheRingsError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
         </Container>
