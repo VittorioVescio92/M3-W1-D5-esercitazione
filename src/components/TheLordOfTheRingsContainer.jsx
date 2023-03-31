@@ -8,7 +8,7 @@ class TheLordOfTheRingsContainer extends Component {
     return (
       <Container fluid className="px-0">
         <div>
-          <h3 className="text-light">The Lord Of The Rings</h3>
+          <h3 className="text-light">The Lord of the Rings</h3>
         </div>
         <Row className="mb-5 px-0">
           {movies &&
