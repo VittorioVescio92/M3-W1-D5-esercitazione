@@ -33,4 +33,14 @@ img {
     max-width: 90%;
     margin-inline: auto;
   }
+
+  #navItem {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  h3 {
+    padding-inline: 5%;
+  }
 }

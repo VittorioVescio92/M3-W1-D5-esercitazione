@@ -17,31 +17,33 @@ class MyNavbar extends Component {
               <Nav.Link className="mx-2 px-1 text-white-50" href="index.html">
                 Home
               </Nav.Link>
-              <Nav.Link className="mx-2 px-1 text-light" href="#">
+              <Nav.Link id="navItem" className="mx-2 px-1 text-light" href="#">
                 TV Shows
               </Nav.Link>
-              <Nav.Link className="mx-2 px-1 text-white-50" href="#">
+              <Nav.Link id="navItem" className="mx-2 px-1 text-white-50" href="#">
                 Movies
               </Nav.Link>
-              <Nav.Link className="mx-2 px-1 text-white-50" href="#">
+              <Nav.Link id="navItem" className="mx-2 px-1 text-white-50" href="#">
                 Recently Added
               </Nav.Link>
-              <Nav.Link className="mx-2 px-1 text-white-50" href="#">
+              <Nav.Link id="navItem" className="mx-2 px-1 text-white-50" href="#">
                 My List
               </Nav.Link>
             </Nav>
           </Container>
-          <Container className="d-flex align-items-center text-light mx-auto justify-content-end px-0">
-            <span>
+          <Container id="navItem" className="d-flex align-items-center text-light mx-auto justify-content-end px-0">
+            <span id="navItem">
               <BiSearch className="mx-3" />
             </span>
-            <span className="mx-3">KIDS</span>
-            <span>
+            <span id="navItem" className="mx-3">
+              KIDS
+            </span>
+            <span id="navItem">
               <BiBell className="mx-3" />
             </span>
             <Dropdown align="end">
               <Dropdown.Toggle variant="transparent" id="dropdown-avatar">
-                <img className="ms-3" src={Avatar} alt="avatar" width="40px" />
+                <img id="navItem" className="ms-3" src={Avatar} alt="avatar" width="40px" />
               </Dropdown.Toggle>
               <Dropdown.Menu align="end" variant="dark">
                 <Dropdown.Item href="profile.html">Profile</Dropdown.Item>
