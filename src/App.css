@@ -3,35 +3,27 @@ html {
 }
 
 img {
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.cover {
+  height: 450px;
 }
 
 .dropdown-item:hover {
   background-color: rgb(0, 32, 213);
 }
 
-nav {
-  margin-left: -12px;
-}
-
-.first-row {
-  margin-inline: 25% 25%;
-}
-
-.second-row {
-  margin-inline: 25% 25%;
-}
-
 .cover {
   transition: transform 0.3s ease;
 }
 
-.cover:hover {
+.card:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.bi-pen {
-  top: 165px;
-  left: 25px;
+#spinner {
+  width: 300px;
+  height: 300px;
 }
