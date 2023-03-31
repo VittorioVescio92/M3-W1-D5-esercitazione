@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, Spinner } from "react-bootstrap";
+import { Alert, Container, Spinner } from "react-bootstrap";
 import TheLordOfTheRingsContainer from "./TheLordOfTheRingsContainer";
 import StarWarsContainer from "./StarWarsContainer";
 import HarryPotterContainer from "./HarryPotterContainer";
@@ -10,6 +10,9 @@ class MyMain extends Component {
     StarWars: [],
     HarryPotter: [],
     isLoading: true,
+    StarWarsError: false,
+    HarryPotterError: false,
+    TheLordOfTheRingsError: false,
   };
 
   async componentDidMount() {
@@ -19,6 +22,7 @@ class MyMain extends Component {
       const movies = data.Search.filter(movie => movie.Type === "movie");
       this.setState({ StarWars: movies, isLoading: false });
     } catch (error) {
+      this.setState({ isLoading: false, StarWarsError: true });
       console.error(error);
     }
 
@@ -28,6 +32,7 @@ class MyMain extends Component {
       const movies = data.Search.filter(movie => movie.Type === "movie");
       this.setState({ HarryPotter: movies, isLoading: false });
     } catch (error) {
+      this.setState({ isLoading: false, HarryPotterError: true });
       console.error(error);
     }
 
@@ -37,6 +42,7 @@ class MyMain extends Component {
       const movies = data.Search.filter(movie => movie.Type === "movie");
       this.setState({ TheLordOfTheRings: movies, isLoading: false });
     } catch (error) {
+      this.setState({ isLoading: false, TheLordOfTheRingsError: true });
       console.error(error);
     }
   }
@@ -53,12 +59,15 @@ class MyMain extends Component {
         )}
         <Container className="container-fluid justify-content-center px-1">
           <StarWarsContainer movies={this.state.StarWars} />
+          {this.state.StarWarsError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
         </Container>
         <Container className="container-fluid justify-content-center px-1">
           <HarryPotterContainer movies={this.state.HarryPotter} />
+          {this.state.HarryPotterError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
         </Container>
         <Container className="container-fluid justify-content-center px-1">
           <TheLordOfTheRingsContainer movies={this.state.TheLordOfTheRings} />
+          {this.state.TheLordOfTheRingsError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
         </Container>
       </>
     );
