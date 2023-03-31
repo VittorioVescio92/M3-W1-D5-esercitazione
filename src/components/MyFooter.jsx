@@ -80,7 +80,7 @@ class MyFooter extends Component {
         </Row>
         <Row className="text-white-50 mt-5">
           <Col xs={12} className="d-flex justify-content-center">
-            <p className="fs-6 mt-4 text-start">© 1997-2019 Netflix Inc.</p>
+            <p className="fs-6">© 1997-2019 Netflix Inc.</p>
           </Col>
         </Row>
       </footer>

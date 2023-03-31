@@ -10,7 +10,7 @@ class HarryPotterContainer extends Component {
         <div>
           <h3 className="text-light">Harry Potter</h3>
         </div>
-        <Row id="col" className="mb-5 px-0">
+        <Row id="col" className="mb-5 mt-4 px-0">
           {movies &&
             movies.map(movie => (
               <Col key={movie.imdbID} xs={12} sm={6} md={4} xl={3} className="g-3">

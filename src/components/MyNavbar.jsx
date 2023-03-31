@@ -7,7 +7,7 @@ import NetflixLogo from "../assets/netflix_logo.png";
 class MyNavbar extends Component {
   render() {
     return (
-      <Navbar bg="dark" variant="dark" expand="md" className="py-0 px-3 align-items-center">
+      <Navbar bg="dark" variant="dark" expand="md" className="py-1 px-4 align-items-center">
         <Container fluid className="px-0">
           <Container fluid className="d-flex justify-content-start px-0">
             <Navbar.Brand className="p-0 m-0">
