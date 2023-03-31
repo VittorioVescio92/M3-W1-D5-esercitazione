@@ -45,4 +45,8 @@ img {
   .card {
     max-width: 290px;
   }
+
+  #header {
+    padding-inline: 5%;
+  }
 }

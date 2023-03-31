@@ -4,7 +4,7 @@ import { Container, Dropdown, Navbar } from "react-bootstrap";
 class MyHeader extends Component {
   render() {
     return (
-      <Navbar className="mb-4">
+      <Navbar id="header" className="mb-4">
         <Container fluid className="d-flex justify-content-between align-items-center mx-0 px-0">
           <div className="d-flex justify-content-center mt-3">
             <h2 className="text-light fw-bold pe-5">Films</h2>
