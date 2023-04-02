@@ -5,6 +5,10 @@ import Avatar from "../assets/avatar.png";
 import NetflixLogo from "../assets/netflix_logo.png";
 
 class MyNavbar extends Component {
+  ProfileClick = event => {
+    event.preventDefault();
+    window.location.href = "/profile";
+  };
   render() {
     return (
       <Navbar bg="dark" variant="dark" expand="md" className="py-1 px-4 align-items-center">
@@ -46,7 +50,7 @@ class MyNavbar extends Component {
                 <img id="navItem" className="ms-3" src={Avatar} alt="avatar" width="40px" />
               </Dropdown.Toggle>
               <Dropdown.Menu align="end" variant="dark">
-                <Dropdown.Item href="profile.html">Profile</Dropdown.Item>
+                <Dropdown.Item onClick={this.ProfileClick}>Profile</Dropdown.Item>
                 <Dropdown.Item href="#">Settings</Dropdown.Item>
                 <Dropdown.Divider />
               </Dropdown.Menu>

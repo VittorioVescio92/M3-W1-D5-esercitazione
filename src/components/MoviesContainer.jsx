@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 
 class MoviesContainer extends Component {
