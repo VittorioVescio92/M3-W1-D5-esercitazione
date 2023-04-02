@@ -1,8 +1,6 @@
 import { Component } from "react";
 import { Alert, Container, Spinner } from "react-bootstrap";
-import TheLordOfTheRingsContainer from "./TheLordOfTheRingsContainer";
-import StarWarsContainer from "./StarWarsContainer";
-import HarryPotterContainer from "./HarryPotterContainer";
+import MoviesContainer from "./MoviesContainer.jsx";
 
 class MyMain extends Component {
   state = {
@@ -22,7 +20,7 @@ class MyMain extends Component {
       const response = await fetch("http://www.omdbapi.com/?apikey=4d29747d&s=Star wars");
       const data = await response.json();
       const movies = data.Search.filter(movie => movie.Type === "movie");
-      this.setState({ StarWars: movies, isLoading: false });
+      this.setState({ StarWars: movies, StarWarsIsLoading: false });
     } catch (error) {
       this.setState({ StarWarsIsLoading: false, StarWarsError: true });
       console.error(error);
@@ -32,7 +30,7 @@ class MyMain extends Component {
       const response = await fetch("http://www.omdbapi.com/?apikey=4d29747d&s=Harry Potter");
       const data = await response.json();
       const movies = data.Search.filter(movie => movie.Type === "movie");
-      this.setState({ HarryPotter: movies, isLoading: false });
+      this.setState({ HarryPotter: movies, HarryPotterIsLoading: false });
     } catch (error) {
       this.setState({ HarryPotterIsLoading: false, HarryPotterError: true });
       console.error(error);
@@ -42,7 +40,7 @@ class MyMain extends Component {
       const response = await fetch("http://www.omdbapi.com/?apikey=4d29747d&s=The lord of the rings");
       const data = await response.json();
       const movies = data.Search.filter(movie => movie.Type === "movie");
-      this.setState({ TheLordOfTheRings: movies, isLoading: false });
+      this.setState({ TheLordOfTheRings: movies, TheLordOfTheRingsIsLoading: false });
     } catch (error) {
       this.setState({ TheLordOfTheRingsIsLoading: false, TheLordOfTheRingsError: true });
       console.error(error);
@@ -53,8 +51,8 @@ class MyMain extends Component {
     return (
       <>
         <Container className="container-fluid justify-content-center px-1">
-          <StarWarsContainer movies={this.state.StarWars} />
-          {this.state.StarWarsIsLoading && (
+          <MoviesContainer movies={this.state.StarWars} title="Star Wars" />
+          {this.state.StarWarsIsLoading && !this.state.StarWarsError && (
             <div className="text-center mt-5">
               <Spinner variant="danger" animation="border" role="status" id="spinner">
                 <span className="visually-hidden">Loading...</span>
@@ -62,8 +60,9 @@ class MyMain extends Component {
             </div>
           )}
           {this.state.StarWarsError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
-          <HarryPotterContainer movies={this.state.HarryPotter} />
-          {this.state.HarryPotterIsLoading && (
+
+          <MoviesContainer movies={this.state.HarryPotter} title="Harry Potter" />
+          {this.state.HarryPotterIsLoading && !this.state.HarryPotterError && (
             <div className="text-center mt-5">
               <Spinner variant="danger" animation="border" role="status" id="spinner">
                 <span className="visually-hidden">Loading...</span>
@@ -71,8 +70,9 @@ class MyMain extends Component {
             </div>
           )}
           {this.state.HarryPotterError && <Alert variant="danger">Ops! Qualcosa è andato storto...</Alert>}
-          <TheLordOfTheRingsContainer movies={this.state.TheLordOfTheRings} />
-          {this.state.TheLordOfTheRingsIsLoading && (
+
+          <MoviesContainer movies={this.state.TheLordOfTheRings} title="The Lord of the Rings" />
+          {this.state.TheLordOfTheRingsIsLoading && !this.state.TheLordOfTheRingsError && (
             <div className="text-center mt-5">
               <Spinner variant="danger" animation="border" role="status" id="spinner">
                 <span className="visually-hidden">Loading...</span>
@@ -85,5 +85,4 @@ class MyMain extends Component {
     );
   }
 }
-
 export default MyMain;
